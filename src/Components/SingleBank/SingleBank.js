@@ -15,7 +15,7 @@ function SingleBank(props) {
         setBankDetails(singleBank[0]);
       }
     }
-  }, []);
+  }, [queryIFSC, queryCity]);
 
   return (
     <div className="singleBank">
