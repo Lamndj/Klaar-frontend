@@ -24,11 +24,32 @@ function BankTable({
   useEffect(() => {
     let _fileredBanks;
     if (currentQuery !== "") {
-      _fileredBanks = allBanks.filter((bank) =>
-        bank.bank_name
-          .toString()
-          .toLowerCase()
-          .includes(currentQuery.toString().toLowerCase())
+      _fileredBanks = allBanks.filter(
+        (bank) =>
+          bank.bank_name
+            .toString()
+            .toLowerCase()
+            .includes(currentQuery.toString().toLowerCase()) ||
+          bank.ifsc
+            .toString()
+            .toLowerCase()
+            .includes(currentQuery.toString().toLowerCase()) ||
+          bank.branch
+            .toString()
+            .toLowerCase()
+            .includes(currentQuery.toString().toLowerCase()) ||
+          bank.district
+            .toString()
+            .toLowerCase()
+            .includes(currentQuery.toString().toLowerCase()) ||
+          bank.city
+            .toString()
+            .toLowerCase()
+            .includes(currentQuery.toString().toLowerCase()) ||
+          bank.state
+            .toString()
+            .toLowerCase()
+            .includes(currentQuery.toString().toLowerCase())
       );
     } else {
       _fileredBanks = [...allBanks];
